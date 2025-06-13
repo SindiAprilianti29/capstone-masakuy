@@ -16,6 +16,19 @@
 Indonesia termasuk salah satu negara dengan tingkat food waste tertinggi di dunia, dan salah satu penyumbang utamanya berasal dari rumah tangga. Banyak orang, termasuk mahasiswa kos sering kesulitan memanfaatkan bahan makanan sisa karena kurangnya ide resep, sehingga bahan tersebut terbuang percuma. Proyek ini bertujuan menjawab pertanyaan “Bagaimana kesesuaian antara bahan makanan sisa yang dimiliki pengguna dengan resep yang dihasilkan dapat membantu mengolah bahan tersebut guna mengurangi pemborosan?”. Untuk itu, kami mengembangkan MasaKuy, sebuah website yang merekomendasikan resep masakan berdasarkan bahan makanan sisa yang dimasukkan pengguna. Proyek ini dirancang untuk membantu pengguna, terutama mahasiswa agar dapat memanfaatkan bahan yang tersedia dengan optimal, sekaligus mengurangi pemborosan makanan. 
 
 ## Model Machine Learning
+### Data Understanding
+#### Sumber Data
+Dataset diambil dari data resep pada website [Resep Masakan] (https://cookpad.com/) dengan metode scraping. Dataset terdiri dari 4 informasi, yaitu url resep, nama makanan, bahan, dan langkah-langkah pembuatan. 
+
+- Jumlah baris: 32465 
+- Jumlah kolom: 4
+
+| Nama Variabel          | Deskripsi                                                                 |
+|------------------------|---------------------------------------------------------------------------|
+| `url`                | Tautan setiap resep yang didapat |
+| `nama_makanan`| Judul resep. |
+| `bahan`               | Rincian bahan-bahan yang digunakan untuk memasak                                        |
+| `langkah`               | Urutan proses memasak    |
 ### Model Summary
 ```
 Model: "functional"
