@@ -224,6 +224,18 @@ bahan_input = "tempe bawang tahu tomat"
 
 ![image](https://github.com/user-attachments/assets/fd7694d2-6d14-4a40-8b8a-63ad5d9a956c)
 
+## Arsitektur Website
+1. Frontend
+   - HTML
+   - CSS
+   - Javascript
+   - Webpack
+     
+2. Backend
+   - Node.js
+   - Hapi.js
+   - File JSON (db)
+     
 ## Live Website
 [Masakuy](http://202.10.36.53:3000/)
 
