@@ -59,8 +59,12 @@ Contoh:
  8. voila tempe goreng tepung siap disantap.
 ```
 > Terdapat keyword [TITLE] dan [STEP] sebagai penanda untuk mempermudah proses parsing. Lalu sebenarnya "enter" yang terdapat pada contoh dalam dataset aslinya menggunakan "\n".
+#### 5. Filtering dan Labelling untuk Nama Masakan yang Mirip
+Menggunakan TF-IDF berbasis karakter n-gram (panjang 3–5 karakter). Lalu, menghitung kemiripan antar label menggunakan cosine similarity. Semua label yang sangat mirip (kemiripan ≥ 0.9) akan diwakili oleh satu label umum. Jika dua nama makanan berbeda hanya sedikit misalnya typo atau variasi kecil akan dianggap sama. Hal ini untuk mengatasi ribuan nama makanan yang bisa jadi mirip-mirip, typo, atau bentuknya tidak konsisten.
 
-### Model Summary
+### Modelling 
+
+#### Model Summary
 ```
 Model: "functional"
 _________________________________________________________________
@@ -84,7 +88,7 @@ Trainable params: 609,434 (2.32 MB)
 Non-trainable params: 128 (512.00 B)
 _________________________________________________________________
 ```
-### Evaluasi Model
+#### Evaluasi Model
 ![model_result](images/model_result.png)
 </br>
 ### Controlled Overfitting
