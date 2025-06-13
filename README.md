@@ -46,7 +46,4 @@ Indonesia termasuk salah satu negara dengan tingkat food waste tertinggi di duni
                                                                
 
 
-## Rencana Implementasi Lokal
-
-
 
