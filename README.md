@@ -17,7 +17,24 @@ Indonesia termasuk salah satu negara dengan tingkat food waste tertinggi di duni
 
 ## Hasil
 
+## API Docs
+### Endpoint: ``/predict``
+
+### Request Body:
+```
+{
+  "bahan_input": "string"
+}
+```
+### Responses
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `OK`                                |
+> | `422`         | `application/json`                | `{"detail":[{"loc":["string",0],"msg":"string","type":"string"}]}`                            |
+                                                               
+
 
 ## Rencana Implementasi Lokal
+
 
 
