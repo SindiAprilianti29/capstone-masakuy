@@ -45,5 +45,28 @@ Indonesia termasuk salah satu negara dengan tingkat food waste tertinggi di duni
 > | `422`         | `application/json`                | `{"detail":[{"loc":["string",0],"msg":"string","type":"string"}]}`                            |
                                                                
 
+## Interface Website
+![image](https://github.com/user-attachments/assets/be0363f1-7ba1-44f3-b20d-641766ac9ca1)
+
+![image](https://github.com/user-attachments/assets/e7f981e5-7c16-4b1b-90fc-2e8521cb2eca)
+
+![image](https://github.com/user-attachments/assets/0d42a27b-dd09-44e0-a239-1eb93118dd74)
+
+![image](https://github.com/user-attachments/assets/003fd978-fa97-4a59-8925-fe68888b25af)
+
+![image](https://github.com/user-attachments/assets/bd285991-4a87-4b95-8dfa-85bd30fffe09)
+
+![image](https://github.com/user-attachments/assets/020d7d2c-1559-4435-8465-1434ff089595)
+
+![image](https://github.com/user-attachments/assets/2a8335f2-c213-488c-837e-b99af2860fc8)
+
+![image](https://github.com/user-attachments/assets/fd7694d2-6d14-4a40-8b8a-63ad5d9a956c)
+
+
+
+
+
+
+
 
 
