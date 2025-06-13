@@ -1,0 +1,173 @@
+@font-face {
+  font-family: "Buka Bird";
+  src: url("../font/Buka Bird.ttf") format("truetype");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #0053a3;
+  box-sizing: border-box;
+}
+
+.navbar-container {
+  background-color: #fdfffc;
+  width: 90%;
+  margin: 5vh auto;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 6px solid #f1d301;
+}
+
+.navbar {
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 5vw;
+}
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(16px, 2vw, 25px);
+  padding: 0.5rem 1rem;
+}
+
+.header {
+  color: #f1d301;
+  text-align: center;
+  padding: 2vh 0;
+}
+
+.logo {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(32px, 10vw, 150px);
+  margin: 0;
+  font-weight: bold;
+  text-shadow: 2px 2px black;
+  -webkit-text-stroke: 5px black;
+}
+
+.font-alt {
+  font-family: "Buka Bird", sans-serif;
+  -webkit-text-stroke: 1px black;
+}
+
+.slogan {
+  text-align: center;
+}
+
+.box1 {
+  display: inline-block;
+  background-color: #f1d301;
+  color: black;
+  font-weight: bold;
+  font-size: clamp(20px, 5vw, 35px);
+  padding: 0.5em 1em;
+  margin: 0 0.5vw;
+  border-radius: 8px;
+  position: relative;
+  bottom: -50px;
+  z-index: 20;
+  border: 20px solid #0053a3;
+  transform: rotate(-7deg);
+}
+
+.box2 {
+  display: inline-block;
+  background-color: #f1d301;
+  color: black;
+  font-weight: bold;
+  font-size: clamp(20px, 5vw, 35px);
+  padding: 0.5em 1em;
+  margin: 0 0.5vw;
+  border-radius: 8px;
+  position: relative;
+  bottom: -50px;
+  z-index: 20;
+  border: 20px solid #0053a3;
+  transform: rotate(7deg);
+}
+
+.try-now-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  padding: 5vh 0;
+  background-color: #fdfffc;
+  width: 100%;
+  z-index: 1;
+}
+
+.try-now-section input,
+.try-now-section button,
+.try-now-section .default-chip {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.try-now-button {
+  background-color: #548043;
+  color: #fdfffc;
+  -webkit-text-stroke: 1.5px black;
+  padding: 1rem 3rem;
+  font-size: clamp(24px, 5vw, 50px);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  max-width: 100%;
+  width: auto;
+  box-sizing: border-box;
+}
+
+.tomat {
+  width: clamp(120px, 30vw, 280px);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .navbar li {
+    display: block;
+    margin: 1rem 0;
+  }
+
+  .slogan {
+    margin-top: 2rem;
+  }
+
+  .box1,
+  .box2 {
+    display: block;
+    margin: 0.5rem auto;
+    bottom: 0;
+  }
+
+  .try-now-section {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5vh 2rem;
+  }
+
+  .try-now-button {
+    width: 90%;
+  }
+}

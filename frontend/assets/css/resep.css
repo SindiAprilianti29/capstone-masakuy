@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #fdfffc;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size: 16px;
+}
+
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #ffd700;
+  color: #0050a0;
+  font-size: 24px;
+  font-weight: bold;
+  border: 2px solid #0050a0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #0050a0;
+  color: #ffffff;
+}
+
+.recipe-container {
+  max-width: 800px;
+  padding: 24px;
+  display: block;
+  margin: 70px auto 40px;
+}
+
+.recipe-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.recipe-icon {
+  width: 150px;
+  height: auto;
+}
+
+.recipe-title {
+  margin: 8px 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.recipe-card {
+  background-color: #f5d000;
+  border: 15px solid #004080;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card h2 {
+  margin-top: 0;
+}
+
+.recipe-card ul,
+.recipe-card ol {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .recipe-container {
+    padding: 16px;
+    margin: 60px 16px 32px;
+  }
+}
