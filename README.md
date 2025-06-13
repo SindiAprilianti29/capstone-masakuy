@@ -225,9 +225,7 @@ bahan_input = "tempe bawang tahu tomat"
 ![image](https://github.com/user-attachments/assets/fd7694d2-6d14-4a40-8b8a-63ad5d9a956c)
 
 ## Live Website
-```
 [Masakuy](http://202.10.36.53:3000/)
-```
 
 
 
