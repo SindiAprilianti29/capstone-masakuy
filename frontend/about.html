@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Masakuy</title>
+    <link rel="stylesheet" href="./assets/css/about.css" />
+  </head>
+  <body>
+    <main class="recipe-container">
+      <button class="back-button" id="backButton">←</button>
+      <img src="assets/images/tomat.svg" alt="Tomato Icon" class="recipe-icon" />
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const from = params.get("from");
+
+      const backButton = document.getElementById("backButton");
+
+      if (from === "home") {
+        backButton.onclick = () => (window.location.href = "home.html");
+      } else {
+        backButton.onclick = () => (window.location.href = "index.html"); // halaman landing
+      }
+    </script>
+    <section class="about-us">
+      <h1>Tentang Masakuy 🍳</h1>
+      <p>
+        <strong>Masakuy</strong> adalah website yang dikembangkan untuk membantu Gen Z—khususnya para mahasiswa—yang sering kebingungan menentukan masakan dari bahan makanan sisa yang ada di rumah. Kami memahami betapa sulitnya menyulap
+        bahan seadanya menjadi hidangan lezat, apalagi dengan jadwal kuliah yang padat dan budget yang terbatas.
+      </p>
+      <p>Dengan <em>Masakuy</em>, kamu hanya perlu memasukkan bahan-bahan yang kamu punya, dan kami akan merekomendasikan resep yang bisa kamu coba. Gampang, cepat, dan hemat!</p>
+
+      <h2>Tim Pengembang</h2>
+      <ul>
+        <li><strong>MC001D5X1234</strong> – Sindi Aprilianti – Machine Learning</li>
+        <li><strong>MC001D5X1126</strong> – Viby Ladyscha Yalasena Winarno – Machine Learning</li>
+        <li><strong>MC001D5Y1303</strong> – I Gusti Ngurah Sucahya Satria Adi Pratama – Machine Learning</li>
+        <li><strong>FC001D5X2367</strong> – Dwiamalina Qurratuain Najla – Front-end & Back-End</li>
+        <li><strong>FC001D5X1428</strong> – Syifa Izzatul Rahmah – Front-end & Back-End</li>
+      </ul>
+
+      <p>Kami percaya bahwa memasak bisa menjadi menyenangkan dan tidak perlu merepotkan. Yuk, mulai petualangan masakmu bersama <strong>Masakuy!</strong></p>
+    </section>
+  </body>
+</html>

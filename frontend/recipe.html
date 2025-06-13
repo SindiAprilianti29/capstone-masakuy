@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Resep</title>
+    <link rel="stylesheet" href="./assets/css/resep.css" />
+  </head>
+  <body style="background-image: url('assets/images/bg3.svg')">
+    <main class="recipe-container">
+      <button class="back-button" onclick="window.location.href='home.html'">←</button>
+
+      <div class="recipe-header">
+        <img src="assets/images/tomat.svg" alt="Tomato Icon" class="recipe-icon" />
+        <h1 class="recipe-title" id="recipe-title">Judul Resep</h1>
+      </div>
+
+      <div class="recipe-card">
+        <h2>Cara Membuat:</h2>
+        <ol id="langkah-list">
+          <li>Memuat...</li>
+        </ol>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const resepList = JSON.parse(localStorage.getItem("resepRekomendasi"));
+        const selectedIndex = localStorage.getItem("selectedRecipeIndex");
+
+        if (!resepList || selectedIndex === null || !resepList[selectedIndex]) {
+          alert("Data resep tidak ditemukan.");
+          window.location.href = "home.html";
+          return;
+        }
+
+        const selected = resepList[selectedIndex];
+        const titleElement = document.getElementById("recipe-title");
+        const langkahList = document.getElementById("langkah-list");
+
+        titleElement.textContent = selected.nama_makanan || selected.title || "Resep Tanpa Judul";
+        langkahList.innerHTML = "";
+
+        const deskripsi = selected.deskripsi || "";
+        const normalized = deskripsi.replace(/\\n/g, "\n");
+
+        // DEBUG: tampilkan isi deskripsi mentah
+        console.log("Deskripsi asli:", selected.deskripsi);
+        console.log("Setelah normalisasi:", normalized);
+
+        let hasStep = false;
+        const stepStart = normalized.indexOf("[STEP]");
+        if (stepStart !== -1) {
+          const stepText = normalized.slice(stepStart + 6); // Lewati tag [STEP]
+          const stepLines = stepText
+            .split("\n")
+            .map(
+              (line) => line.replace(/^\s*\d+[.)]?\s*/, "").trim() // Hapus "1.", "1)", "1. ", " 1) ", dst
+            )
+            .filter((line) => line.length > 0);
+
+          for (const step of stepLines) {
+            langkahList.innerHTML += `<li>${step}</li>`;
+            hasStep = true;
+          }
+        }
+
+        if (!hasStep) {
+          langkahList.innerHTML = "<li>Langkah tidak ditemukan dalam deskripsi.</li>";
+        }
+      });
+    </script>
+  </body>
+</html>

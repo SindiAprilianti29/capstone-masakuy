@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Finder</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="home.html">HOME</a>
+        <a href="about.html?from=home">ABOUT</a>
+        <a href="#" id="auth-link"></a>
+      </div>
+      <div class="nav-right">
+        <span class="tomato" id="profile-icon">🍅</span>
+      </div>
+    </nav>
+
+    <div id="profile-popup" class="profile-menu">
+      <div class="username" id="profile-username">Hello, User</div>
+      <div class="badge" id="premium-badge" style="display: none">🌟 Premium User</div>
+      <div class="premium" onclick="upgradePremium()">Try Premium</div>
+      <div class="logout" onclick="logout()">Logout</div>
+    </div>
+
+    <div class="intro-section">
+      <img src="assets/images/tomat.svg" alt="Tomat Bicara" class="talking-tomato" />
+      <div class="speech-bubble">
+        Masih ada bahan sisa? Coba cek, bisa jadi masakan enak lho!<br />
+        Pilih bahan di bawah ini atau ketik sendiri.<br />
+        Biar kami yang mikirin resepnya!
+      </div>
+    </div>
+
+    <!-- Bahan default (chips) -->
+    <div class="default-ingredients" id="default-ingredients">
+      <span class="default-chip" onclick="addDefaultIngredient('tomat')">Tomat</span>
+      <span class="default-chip" onclick="addDefaultIngredient('bawang')">Bawang</span>
+      <span class="default-chip" onclick="addDefaultIngredient('telur')">Telur</span>
+      <span class="default-chip" onclick="addDefaultIngredient('kecap')">Kecap</span>
+      <span class="default-chip" onclick="addDefaultIngredient('garam')">Garam</span>
+      <span class="default-chip" onclick="addDefaultIngredient('kentang')">Kentang</span>
+      <span class="default-chip" onclick="addDefaultIngredient('susu')">Susu</span>
+      <span class="default-chip" onclick="addDefaultIngredient('keju')">Keju</span>
+      <span class="default-chip" onclick="addDefaultIngredient('madu')">Madu</span>
+      <span class="default-chip" onclick="addDefaultIngredient('nasi')">Nasi</span>
+      <span class="default-chip" onclick="addDefaultIngredient('ayam')">Ayam</span>
+      <span class="default-chip" onclick="addDefaultIngredient('tahu')">Tahu</span>
+      <span class="default-chip" onclick="addDefaultIngredient('cabai')">Cabai</span>
+      <span class="default-chip" onclick="addDefaultIngredient('roti')">Roti</span>
+    </div>
+
+    <div class="input-section">
+      <input type="text" id="ingredient-input" placeholder="Masukkan bahan..." />
+      <button id="add-button">Add</button>
+    </div>
+
+    <div class="ingredient-box" id="ingredient-box"></div>
+    <div class="recipe-grid" id="recipe-grid"></div>
+
+    <script>
+      const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+      const user = JSON.parse(localStorage.getItem("user"));
+      const userId = user?.id;
+      const authLink = document.getElementById("auth-link");
+      const profileIcon = document.getElementById("profile-icon");
+      const profilePopup = document.getElementById("profile-popup");
+      const profileUsername = document.getElementById("profile-username");
+      const premiumBadge = document.getElementById("premium-badge");
+
+      if (isLoggedIn) {
+        authLink.href = "#";
+        profileIcon.style.display = "inline";
+
+        if (user && user.name && profileUsername) {
+          profileUsername.textContent = `Hello, ${user.name}`;
+        }
+
+        if (user && user.isPremium && premiumBadge) {
+          premiumBadge.style.display = "block";
+        }
+      } else {
+        authLink.textContent = "LOG IN";
+        authLink.href = "login.html";
+        profileIcon.style.display = "none";
+      }
+
+      profileIcon.addEventListener("click", () => {
+        profilePopup.style.display = profilePopup.style.display === "block" ? "none" : "block";
+      });
+
+      function logout() {
+        localStorage.clear();
+        location.reload();
+      }
+
+      async function upgradePremium() {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user || !user.id) {
+          alert("Silakan login terlebih dahulu.");
+          return;
+        }
+
+        try {
+          const res = await fetch("http://localhost:5000/upgrade", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ userId: user.id }),
+          });
+
+          const data = await res.json();
+          if (data.success) {
+            user.isPremium = true;
+            localStorage.setItem("user", JSON.stringify(user));
+            if (premiumBadge) premiumBadge.style.display = "block";
+            alert("Akun kamu sudah di-upgrade ke Premium! 🎉");
+          } else {
+            alert(data.message || "Upgrade gagal.");
+          }
+        } catch (error) {
+          alert("Terjadi kesalahan saat menghubungi server.");
+        }
+      }
+
+      const input = document.getElementById("ingredient-input");
+      const addButton = document.getElementById("add-button");
+      const ingredientBox = document.getElementById("ingredient-box");
+      const recipeGrid = document.getElementById("recipe-grid");
+
+      let ingredients = [];
+
+      addButton.addEventListener("click", () => {
+        const value = input.value.trim();
+        if (value && !ingredients.includes(value)) {
+          ingredients.push(value);
+          renderIngredients();
+          input.value = "";
+        }
+      });
+
+      function addDefaultIngredient(ingredient) {
+        if (!ingredients.includes(ingredient)) {
+          ingredients.push(ingredient);
+          renderIngredients();
+        }
+      }
+
+      function renderIngredients() {
+        ingredientBox.innerHTML = ingredients.map((ing) => `<span class="ingredient">${ing}<span class="remove" onclick="removeIngredient('${ing}')">✱</span></span>`).join("") + `<button class="arrow" onclick="getRecipes()">➡</button>`;
+      }
+
+      function removeIngredient(ing) {
+        ingredients = ingredients.filter((i) => i !== ing);
+        renderIngredients();
+      }
+
+      async function getRecipes() {
+        if (ingredients.length === 0) {
+          alert("Silakan tambahkan bahan terlebih dahulu.");
+          return;
+        }
+
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        try {
+          const response = await fetch("http://localhost:5000/recommendation", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ingredients,
+              userId: user?.id || null,
+            }),
+          });
+
+          const data = await response.json().catch(() => null);
+
+          if (!response.ok) {
+            const message = data?.message || "Terjadi kesalahan di server.";
+            alert(message);
+            return;
+          }
+
+          if (!data.success) {
+            alert(data.message || "Terjadi kesalahan.");
+            return;
+          }
+
+          localStorage.setItem("resepRekomendasi", JSON.stringify(data.recipes));
+          renderRecipes(data.recipes);
+        } catch (err) {
+          console.error("Gagal terhubung ke server rekomendasi:", err);
+          alert("Gagal terhubung ke server rekomendasi.");
+        }
+      }
+
+      function renderRecipes(recipes) {
+        recipeGrid.innerHTML = recipes.map((r, i) => `<div class="recipe-card" onclick="selectRecipe(${i})">${r.nama_makanan || r.title}</div>`).join("");
+      }
+
+      function selectRecipe(index) {
+        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+        if (!isLoggedIn) {
+          alert("Silakan login untuk melihat resep.");
+          return;
+        }
+
+        localStorage.setItem("selectedRecipeIndex", index);
+        window.location.href = "recipe.html";
+      }
+    </script>
+  </body>
+</html>
