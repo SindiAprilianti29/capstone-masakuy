@@ -20,11 +20,11 @@ Indonesia termasuk salah satu negara dengan tingkat food waste tertinggi di duni
 ![model_result](images/model_result.png)
 </br>
 ### Controlled Overfitting
-1. Fitur pencarian resep dirancang untuk menemukan makanan spesifik yang cocok dengan kombinasi bahan yang spesifik juga. Misalnya input pengguna ``ayam, kemangi``. Maka, output yang diharapkan muncul salah satunya ``ayam suwir kemangi pedas``.
-**Contoh Input**
-![contoh_input](images/input.png)
-**Contoh Output**
-![contoh_input](images/output.png)
+1. Fitur pencarian resep dirancang untuk menemukan makanan spesifik yang cocok dengan kombinasi bahan yang spesifik juga. Misalnya input pengguna ``ayam, kemangi``. Maka, output yang diharapkan muncul salah satunya ``ayam suwir kemangi pedas``. </br>
+**Contoh Input**</br>
+![contoh_input](images/input.png)</br>
+**Contoh Output**</br>
+![contoh_input](images/output.png)<br>
 
 2. Model tidak hanya memberikan 1 hasil, tapi beberapa resep terbaik sehingga membuat overfitting lebih aman karena hasil masih relevan.
 3. Generalisasi yang terlalu tinggi membuat prediksi menjadi tidak relevan karena kombinasi bahan untuk makanan tertentu sudah sangat spesifik. 
