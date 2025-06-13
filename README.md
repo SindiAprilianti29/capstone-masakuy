@@ -29,6 +29,37 @@ Dataset diambil dari data resep pada website [Resep Masakan] (https://cookpad.co
 | `nama_makanan`| Judul resep. |
 | `bahan`               | Rincian bahan-bahan yang digunakan untuk memasak                                        |
 | `langkah`               | Urutan proses memasak    |
+
+### Data Preparation
+Tahap data preparation bertujuan untuk membersihkan dan menyederhanakan dataset agar siap digunakan dalam proses pembuatan sistem rekomendasi resep masakan. Tahapan yang dilakukan dalam proyek ini sebagai berikut:
+#### 1. Cleaning Text
+Fungsi ini bertujuan untuk memastikan data bersih dari elemen yang tidak penting seperti URL, tag HTML, dan karakter asing sebelum digunakan oleh model.
+#### 2. Menyusun Langkah Memasak 
+Fungsi ini akan menyusun ulang langkah memasak menjadi poin-poin yang terstruktur dan diberi penomoran otomatis. 
+```
+Contoh hasil penomoran
+ 1. tumis bawang putih hingga harum.
+ 2. masukkan ayam dan masak hingga matang.
+```
+#### 3. Mendeteksi Bahasa Indonesia
+Fungsi ini memastikan bahwa hanya resep berbahasa Indonesia yang digunakan dalam pelatihan, dengan mendeteksi bahasa dari kombinasi kolom bahan, langkah, dan nama_makanan.
+#### 4. Memformat Text Target
+Dalam pelatihan, format target akan sebagai berikut:
+```
+Contoh:
+[TITLE] tempe goreng tepung
+[STEP]
+ 1. iris daun bawang bawang merah.
+ 2. campurkan tepung kobe dengan air secara perlahan aduk aduk hingga merata.
+ 3. tambahkan daun bawang bawang merah kaldu jamur ketumbar aduk aduk hingga merata.
+ 4. tambahkan tempe aduk aduk hingga tercampur merata.
+ 5. lalu marinasi.
+ 6. menit semalaman dikulkas.
+ 7. panaskan minyak goreng tempe hingga kecoklatan.
+ 8. voila tempe goreng tepung siap disantap.
+```
+> Terdapat keyword [TITLE] dan [STEP] sebagai penanda untuk mempermudah proses parsing. Lalu sebenarnya "enter" yang terdapat pada contoh dalam dataset aslinya menggunakan "\n".
+
 ### Model Summary
 ```
 Model: "functional"
