@@ -101,6 +101,96 @@ _________________________________________________________________
 2. Model tidak hanya memberikan 1 hasil, tapi beberapa resep terbaik sehingga membuat overfitting lebih aman karena hasil masih relevan.
 3. Generalisasi yang terlalu tinggi membuat prediksi menjadi tidak relevan karena kombinasi bahan untuk makanan tertentu sudah sangat spesifik. 
 
+#### Cntoh Input dan Output
+1. Input
+```
+bahan_input = "tempe bawang tahu tomat"
+```
+
+2. Output
+```
+[Predicted: tempe penyet]
+[TITLE] tempe penyet
+[STEP]
+ 1. siapkan bahan.
+ 2. potong tempe sesuai selera dan rendam dalam air yang dicampur bawang putih garam dan penyedap.
+ 3. diamkan sambil menyiapkan sambal.
+ 4. siapkan bahan sambal.
+ 5. potong kecil kecil tomat bawang dan cabe agar mudah dihaluskan.
+ 6. panaskan minyak dan masukkan bahan yang telah dipotong kecil sampai layu.
+ 7. saat sudah layu masukkan tempe dan kacang tanah goreng hingga tempe setengah matang.
+ 8. angkat bahan sambel.
+ 9. tambahkan terasi matang dan haluskan.
+ 10. tumis kembali sambel yang sudah halus tambahkan garam penyedap dan gula jawa.
+ 11. koreksi rasa.
+ 12. jika terlalu kental bisa ditambahkan air.
+ 13. saya beri agak banyak air dan direbus hingga surut agar sambel lebih awet.
+ 14. setelah sambal matang beri perasan jeruk.
+ 15. sambil menunggu sambal matang.
+ 16. goreng tempe yang sudah direndam bumbu hingga matang.
+ 17. hidangkan tempe dengan sambel penyet.
+ 18. letakkan tempe di piring cobek.
+ 19. tambahkan sambel penyet diatasnya.
+ 20. kemudian penyet atau ulek kasar kedua bahan.
+ 21. tambahkan nasi.
+========================================
+
+========================================
+[Predicted: tumis sambal tempe kemangi]
+[TITLE] tumis sambal tempe kemangi
+[STEP]
+ 1. siapkan semua bahan bahannya.
+ 2. daun bawang diiris iris daun kemangi dipetik petik jangan lupa cuci bersih dulu.
+ 3. taruh tempe dicobek wadah potek potek kemudian bejek bejek penyet penyet atau tumbuk kasar dgn ulegkan.
+ 4. selanjutnya haluskan bahan sambal saya chopper tanpa air.
+ 5. panaskan secukupnya minyak goreng goreng tempenya sampai warna kecoklatan masukkan bahan sambal yg sudah dihaluskan tambahkan juga bumbu seasoningnya aduk rata tumis tumis sampai tanak terakhir baru masukkan irisan daun bawang dan daun kemanginya aduk rata dan angkat.
+ 6. tumis sambal tempe kemangi siap disajikan dibuat lauk bersama nasi hangat masyaallah mantap bikin nambah terusss.
+========================================
+
+========================================
+[Predicted: tempe goreng tepung]
+[TITLE] tempe goreng tepung
+[STEP]
+ 1. iris daun bawang bawang merah.
+ 2. campurkan tepung kobe dengan air secara perlahan aduk aduk hingga merata.
+ 3. tambahkan daun bawang bawang merah kaldu jamur ketumbar aduk aduk hingga merata.
+ 4. tambahkan tempe aduk aduk hingga tercampur merata.
+ 5. lalu marinasi.
+ 6. menit semalaman dikulkas.
+ 7. panaskan minyak goreng tempe hingga kecoklatan.
+ 8. voila tempe goreng tepung siap disantap.
+========================================
+
+========================================
+[Predicted: kering tahu tempe]
+[TITLE] kering tahu tempe
+[STEP]
+ 1. goreng tahu tempe hingga kering tiriskan.
+ 2. siapkan bahan halus tumis hingga wangi bersama cabe rawit dan daun jeruk.
+ 3. masukkan lengkuas dan sereh lalu tambahkan kecap dan gula merah.
+ 4. masukkan tahu tempe lalu tambahkan air asam jawa garam dan kaldu bubuk.
+ 5. aduk rata tambah sedikit air.
+ 6. koreksi rasa.
+========================================
+
+========================================
+[Predicted: bacem tahu tempe]
+[TITLE] bacem tahu tempe
+[STEP]
+ 1. potong tahu tempe sesuai ukuran yang di inginkan.
+ 2. siapkan bumbu halus.
+ 3. bisa di blender atau di uleg yaaa.
+ 4. masukkan tahu tempe bumbu halus daun² bumbu² lainnya ke dalam wajan atau panci.
+ 5. tambahkan air sambil di aduk aduk agar merata semua.
+ 6. kemudian masak di atas kompor.
+ 7. tutup wajan pancinya diamkan sampai mendidih dulu.
+ 8. kalo sdh mendidih bisa dicek rasa dan diaduk aduk lagi tunggu sampai masak.
+ 9. bacem tahu tempe bisa di hidangkan dengan cara seperti tadi atau bisa di goreng yaaa.
+ 10. kalau kami suka dengan rebus saja tanpa goreng.
+ 11. selesai.
+========================================
+```
+
 ## API Docs
 ### Endpoint: ``/predict``
 
