@@ -15,8 +15,32 @@
 
 Indonesia termasuk salah satu negara dengan tingkat food waste tertinggi di dunia, dan salah satu penyumbang utamanya berasal dari rumah tangga. Banyak orang, termasuk mahasiswa kos sering kesulitan memanfaatkan bahan makanan sisa karena kurangnya ide resep, sehingga bahan tersebut terbuang percuma. Proyek ini bertujuan menjawab pertanyaan “Bagaimana kesesuaian antara bahan makanan sisa yang dimiliki pengguna dengan resep yang dihasilkan dapat membantu mengolah bahan tersebut guna mengurangi pemborosan?”. Untuk itu, kami mengembangkan MasaKuy, sebuah website yang merekomendasikan resep masakan berdasarkan bahan makanan sisa yang dimasukkan pengguna. Proyek ini dirancang untuk membantu pengguna, terutama mahasiswa agar dapat memanfaatkan bahan yang tersedia dengan optimal, sekaligus mengurangi pemborosan makanan. 
 
-## Hasil
-## Evaluasi Model
+## Model Machine Learning
+### Model Summary
+```
+Model: "functional"
+_________________________________________________________________
+Layer (type)--------------------Output Shape---------Param #    
+=================================================================
+input_layer (InputLayer)--------(None, 1)------------0           
+text_vectorization--------------(None, 150)----------0           
+embedding (Embedding)-----------(None, 150, 128)-----488064      
+not_equal (NotEqual)------------(None, 150)----------0           
+bidirectional (Bidirectional)---(None, 128)----------98816       
+dropout (Dropout)---------------(None, 128)----------0           
+dense (Dense)-------------------(None, 64)-----------8256        
+batch_normalization-------------(None, 64)-----------256         
+dropout_1 (Dropout)-------------(None, 64)-----------0           
+dense_1 (Dense)-----------------(None, 64)-----------4160        
+dropout_2 (Dropout)-------------(None, 64)-----------0           
+dense_2 (Dense)-----------------(None, 154)----------10010       
+=================================================================
+Total params: 609,562 (2.33 MB)
+Trainable params: 609,434 (2.32 MB)
+Non-trainable params: 128 (512.00 B)
+_________________________________________________________________
+```
+### Evaluasi Model
 ![model_result](images/model_result.png)
 </br>
 ### Controlled Overfitting
