@@ -101,7 +101,7 @@ _________________________________________________________________
 2. Model tidak hanya memberikan 1 hasil, tapi beberapa resep terbaik sehingga membuat overfitting lebih aman karena hasil masih relevan.
 3. Generalisasi yang terlalu tinggi membuat prediksi menjadi tidak relevan karena kombinasi bahan untuk makanan tertentu sudah sangat spesifik. 
 
-#### Cntoh Input dan Output
+#### Contoh Input dan Output
 1. Input
 ```
 bahan_input = "tempe bawang tahu tomat"
